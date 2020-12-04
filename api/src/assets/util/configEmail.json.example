@@ -1,0 +1,6 @@
+{
+    "smtp": "<smtp.test.com>",
+    "port": 465,
+    "user": "<test@email.com>",
+    "pass": "<myPass>"
+}
