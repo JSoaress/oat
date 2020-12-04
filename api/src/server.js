@@ -10,6 +10,7 @@ app.use(cors())
 app.use(fileUpload({
     createParentPath: true
 }))
+app.use(express.static('uploads'))
 
 // Mongo
 mongoose.connect('mongodb://root:rootpwd@localhost:27017/oat?authSource=admin', {

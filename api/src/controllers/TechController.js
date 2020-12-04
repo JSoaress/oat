@@ -2,7 +2,9 @@ const Tech = require('../models/Tech')
 
 module.exports = {
     async list(req, res) {
-        const techs = await Tech.find()
+        let techs = await Tech.find()
+
+        techs.forEach(tech => tech.img_url = `http://localhost:3333/${tech.img_url}`)
 
         return res.status(200).json(techs)
     },
@@ -25,8 +27,15 @@ module.exports = {
 
     async update(req, res) {
         const id = req.params.id
+        let tech = req.body
 
-        const tech = req.body
+        const file = req.files.img_url
+        file.mv(`./uploads/${file.name}`)
+
+        tech = {
+            ...tech,
+            'img_url': file.name
+        }
 
         const techUpdated = await Tech.findOneAndUpdate({ _id: id }, tech, { new: true })
 

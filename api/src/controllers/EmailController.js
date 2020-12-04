@@ -1,7 +1,8 @@
 const nodemailer = require('nodemailer')
 const configEmail = require('../assets/util/configEmail.json')
 
-// CRIE UMA CÓPIA DO ARQUIVO configEmail.json E CONFIGURE COM SEUS DADOS
+// CRIE UMA CÓPIA DO ARQUIVO configEmail.json.example 
+// RENOMEI-E PARA configEmail.json E CONFIGURE COM SEUS DADOS
 
 module.exports = {
     async sendEmail(recipient) {
