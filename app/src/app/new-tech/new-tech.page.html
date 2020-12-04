@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Nova Tecnologia</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Fechar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form (ngSubmit)="submitForm()">
+    <ion-item>
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input type="text" [(ngModel)]="tech.name" name="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Descrição</ion-label>
+      <ion-input type="text" [(ngModel)]="tech.description" name="description"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Imagem</ion-label>
+      <ion-input type="file" [(ngModel)]="tech.img_url" name="image" (change)="changeFileListener($event)"></ion-input>
+    </ion-item>
+    <ion-button type="submit" expand="block">Adicionar</ion-button>
+  </form>
+
+</ion-content>
